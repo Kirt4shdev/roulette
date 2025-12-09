@@ -1,0 +1,808 @@
+.admin-game {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #0d2137 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ❄️ Efecto de nieve y estrellas */
+.admin-game::before,
+.admin-game::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.admin-game::before {
+  background-image: 
+    radial-gradient(3px 3px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(4px 4px at 50% 10%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(2px 2px at 70% 60%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 90% 30%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 20% 80%, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 200px 200px;
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Header super navideño */
+.admin-game-header {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  border-bottom: 5px solid var(--christmas-green);
+  box-shadow: 0 4px 20px rgba(212, 36, 38, 0.4);
+  padding: 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo más grande en el header */
+.admin-game-header .logo {
+  transform: scale(3);
+  margin: 0 50px;
+}
+
+.admin-game-header .logo-medium .logo-img {
+  max-width: 250px;
+}
+
+/* Guirnalda de luces */
+.admin-game-header::before {
+  content: '💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  font-size: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  animation: christmasLights 1s ease-in-out infinite;
+  z-index: 101;
+}
+
+.admin-game-header-content {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  position: relative;
+  height: 50px;
+}
+
+.header-status-indicators {
+  position: absolute;
+  right: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.status-pill {
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 2px solid;
+}
+
+.status-pill.waiting {
+  background: white;
+  color: var(--christmas-red);
+  border-color: var(--christmas-red);
+}
+
+.status-pill.running {
+  background: var(--christmas-green);
+  color: white;
+  border-color: var(--christmas-green-dark);
+}
+
+.status-pill.finished {
+  background: white;
+  color: var(--christmas-green);
+  border-color: var(--christmas-green);
+}
+
+.ws-indicator {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.ws-indicator.connected {
+  background: #00ff00;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  animation: pulse 2s infinite;
+}
+
+/* Layout principal 3 columnas */
+.admin-game-layout {
+  max-width: 1800px;
+  margin: 0 auto;
+  padding: var(--spacing-md);
+  padding-top: calc(var(--spacing-md) + 10px);
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  gap: var(--spacing-md);
+  align-items: start;
+  min-height: calc(100vh - 80px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Sidebars */
+.players-sidebar,
+.prizes-sidebar {
+  position: sticky;
+  top: calc(var(--spacing-md) + 80px);
+}
+
+.sidebar-panel {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(212, 36, 38, 0.1),
+    0 0 40px rgba(11, 102, 35, 0.1);
+  overflow: hidden;
+}
+
+/* Panel de jugadores */
+.players-panel {
+  border: 4px solid var(--christmas-red);
+}
+
+.players-header {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  position: relative;
+}
+
+.players-header::after {
+  content: '🎅';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: swing 2s ease-in-out infinite;
+}
+
+.panel-header {
+  color: var(--text-white);
+  padding: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1rem;
+}
+
+.player-count-badge,
+.prizes-count-badge {
+  background: rgba(255, 255, 255, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-extrabold);
+  border: 2px solid rgba(255, 255, 255, 0.4);
+}
+
+.players-list-tall {
+  height: calc(100vh - 200px);
+  max-height: 700px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f5 100%);
+}
+
+.empty-list-message {
+  padding: var(--spacing-xl);
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+}
+
+.player-item-compact {
+  padding: 0.6rem var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+  font-size: 0.875rem;
+}
+
+.player-item-compact:hover {
+  background: linear-gradient(90deg, rgba(212, 36, 38, 0.08) 0%, transparent 100%);
+}
+
+.player-item-compact:last-child {
+  border-bottom: none;
+}
+
+.player-item-compact.inactive {
+  opacity: 0.4;
+}
+
+.player-number {
+  width: 24px;
+  height: 24px;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: var(--font-weight-extrabold);
+  color: white;
+  flex-shrink: 0;
+  border: 2px solid var(--christmas-red-dark);
+}
+
+.player-name-sidebar {
+  flex: 1;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-prize-tag {
+  font-size: 0.875rem;
+}
+
+/* Panel de premios */
+.prizes-panel {
+  border: 4px solid var(--christmas-green);
+}
+
+.prizes-header {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  position: relative;
+}
+
+.prizes-header::after {
+  content: '🎁';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: float 2s ease-in-out infinite;
+}
+
+.prizes-list-tall {
+  height: calc(100vh - 200px);
+  max-height: 700px;
+  overflow-y: auto;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fff5 100%);
+}
+
+.prize-item-compact {
+  padding: 0.75rem var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  transition: var(--transition-fast);
+}
+
+.prize-item-compact:hover {
+  background: linear-gradient(90deg, rgba(11, 102, 35, 0.08) 0%, transparent 100%);
+}
+
+.prize-item-compact:last-child {
+  border-bottom: none;
+}
+
+.prize-item-compact.depleted {
+  opacity: 0.35;
+}
+
+.prize-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.prize-name-sidebar {
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prize-units-badge {
+  padding: 0.25rem 0.6rem;
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  border-radius: 10px;
+  font-weight: var(--font-weight-extrabold);
+  font-size: 0.8rem;
+  min-width: 28px;
+  text-align: center;
+  border: 2px solid var(--christmas-green-dark);
+}
+
+.prize-units-badge.depleted {
+  background: var(--text-gray);
+  border-color: #666;
+}
+
+/* Área principal del juego */
+.game-main-area {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+/* Card de juego principal */
+.game-card-main {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(212, 36, 38, 0.15),
+    0 0 50px rgba(11, 102, 35, 0.15);
+  overflow: hidden;
+  border: 4px solid var(--christmas-green);
+  position: relative;
+}
+
+/* Guirnalda superior */
+.game-card-main::before {
+  content: '🎄⭐❄️🎁❄️⭐🎄';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 1.2rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green), var(--christmas-red));
+  padding: 8px 0;
+  z-index: 10;
+  animation: christmasLights 2s ease-in-out infinite;
+}
+
+.game-card-header {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  padding-top: calc(var(--spacing-md) + 35px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.game-card-title {
+  font-family: var(--font-family-christmas);
+  font-size: 1.75rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-white);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.game-card-body {
+  padding: var(--spacing-xl);
+  min-height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f5 50%, #f5fff5 100%);
+}
+
+/* Estado: Esperando */
+.waiting-screen {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.waiting-icon {
+  font-size: 5rem;
+  margin-bottom: var(--spacing-md);
+  animation: float 3s ease-in-out infinite;
+}
+
+.waiting-title {
+  font-family: var(--font-family-christmas);
+  font-size: 2.5rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.waiting-text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xl);
+}
+
+.start-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+/* Mostrar pregunta */
+.question-display {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.question-header-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 4px solid var(--christmas-green);
+}
+
+.round-indicator {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  font-weight: var(--font-weight-bold);
+  color: var(--christmas-green);
+  font-size: 1rem;
+}
+
+.timer-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  box-shadow: 0 4px 15px rgba(212, 36, 38, 0.4);
+  animation: pulse 1s infinite;
+  border: 4px solid var(--christmas-red-dark);
+}
+
+.question-text-large {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+  line-height: 1.5;
+  font-weight: var(--font-weight-bold);
+}
+
+.answers-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.answer-option {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border: 4px solid var(--christmas-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  transition: var(--transition);
+}
+
+.answer-option:hover {
+  border-color: var(--christmas-red);
+  background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);
+  transform: translateX(4px);
+}
+
+.answer-option.correct {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-color: var(--christmas-green-dark);
+  border-width: 5px;
+}
+
+.answer-letter {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-extrabold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(212, 36, 38, 0.3);
+  border: 3px solid var(--christmas-red-dark);
+}
+
+.answer-option.correct .answer-letter {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  border-color: var(--christmas-green-dark);
+  box-shadow: 0 4px 10px rgba(11, 102, 35, 0.3);
+}
+
+.answer-text {
+  flex: 1;
+  font-size: 1rem;
+  color: var(--text-primary);
+  line-height: 1.4;
+  font-weight: var(--font-weight-medium);
+}
+
+.question-actions {
+  display: flex;
+  justify-content: center;
+  gap: var(--spacing-md);
+}
+
+/* Ganadores de ronda */
+.winners-display {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.winners-title {
+  font-family: var(--font-family-christmas);
+  text-align: center;
+  font-size: 2.5rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.winners-grid {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-xl);
+  max-height: 350px;
+  overflow-y: auto;
+}
+
+.winner-card {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border: 3px solid var(--christmas-green);
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.winner-icon-big {
+  font-size: 2.5rem;
+}
+
+.winner-info {
+  flex: 1;
+}
+
+.winner-name {
+  font-size: 1.25rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.winner-score {
+  font-size: 0.9rem;
+  color: var(--christmas-green-dark);
+  font-weight: var(--font-weight-semibold);
+}
+
+.no-winners-message {
+  text-align: center;
+  padding: var(--spacing-2xl);
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* Ruleta girando */
+.roulette-screen {
+  text-align: center;
+  padding: var(--spacing-xl);
+  animation: scaleIn 0.5s ease-out;
+}
+
+.roulette-spinner-big {
+  font-size: 7rem;
+  margin-bottom: var(--spacing-md);
+  animation: spin 1s linear infinite;
+}
+
+.roulette-title-big {
+  font-family: var(--font-family-christmas);
+  font-size: 2.5rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.roulette-names-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  margin-top: var(--spacing-md);
+}
+
+.roulette-name-tag {
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: linear-gradient(135deg, #fff5f5 0%, #fff 100%);
+  border: 3px solid var(--christmas-red);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-bold);
+  animation: pulse 1.5s infinite;
+  color: var(--christmas-red);
+}
+
+/* Ganador anunciado */
+.winner-announcement {
+  text-align: center;
+  padding: var(--spacing-xl);
+  animation: scaleIn 0.8s ease-out;
+}
+
+.winner-celebration-icon {
+  font-size: 7rem;
+  margin-bottom: var(--spacing-md);
+  animation: bounce 1s ease-out;
+}
+
+.winner-announcement-name {
+  font-family: var(--font-family-christmas);
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-md);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prize-announcement {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.prize-name-big {
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--christmas-green);
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-radius: var(--border-radius-lg);
+  display: inline-block;
+  border: 4px solid var(--christmas-green);
+}
+
+/* Juego finalizado */
+.game-finished-screen {
+  text-align: center;
+  padding: var(--spacing-xl);
+}
+
+.finished-icon-big {
+  font-size: 7rem;
+  margin-bottom: var(--spacing-md);
+}
+
+.finished-title-big {
+  font-family: var(--font-family-christmas);
+  font-size: 3rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-lg);
+  font-weight: var(--font-weight-bold);
+}
+
+.final-results-table {
+  max-width: 700px;
+  margin: 0 auto;
+  background: var(--bg-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  border: 3px solid var(--christmas-green);
+}
+
+.result-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.result-row:last-child {
+  border-bottom: none;
+}
+
+.result-row:nth-child(even) {
+  background: linear-gradient(90deg, rgba(212, 36, 38, 0.05) 0%, rgba(11, 102, 35, 0.05) 100%);
+}
+
+.result-player {
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+}
+
+.result-prize {
+  color: var(--christmas-green);
+  font-weight: var(--font-weight-bold);
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-30px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-15px); }
+}
+
+@keyframes christmasLights {
+  0%, 100% { filter: brightness(1); }
+  25% { filter: brightness(1.3) hue-rotate(10deg); }
+  50% { filter: brightness(1.5); }
+  75% { filter: brightness(1.3) hue-rotate(-10deg); }
+}
+
+@keyframes swing {
+  0%, 100% { transform: translateY(-50%) rotate(-5deg); }
+  50% { transform: translateY(-50%) rotate(5deg); }
+}
+
+/* Responsive */
+@media (max-width: 1400px) {
+  .admin-game-layout { grid-template-columns: 240px 1fr 240px; }
+}
+
+@media (max-width: 1100px) {
+  .admin-game-layout { grid-template-columns: 1fr; }
+  .players-sidebar, .prizes-sidebar { position: static; display: none; }
+  .game-main-area { order: 1; }
+}
+
+@media (max-width: 768px) {
+  .admin-game-header .logo {
+    transform: scale(1.5);
+    margin: 0 20px;
+  }
+  .admin-game-header-content { flex-direction: column; gap: var(--spacing-sm); text-align: center; }
+  .header-status-indicators { position: static; }
+  .answers-grid { grid-template-columns: 1fr; }
+  .question-text-large { font-size: 1.125rem; }
+  .winner-announcement-name { font-size: 1.75rem; }
+  .prize-name-big { font-size: 1.5rem; }
+}

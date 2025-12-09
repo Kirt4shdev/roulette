@@ -1,0 +1,689 @@
+.player-game {
+  min-height: 100vh;
+  min-height: 100dvh; /* Para móviles con barra de navegación */
+  height: 100vh;
+  height: 100dvh;
+  background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #0d2137 100%);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Header navideño */
+.player-header {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  border-bottom: 4px solid var(--christmas-green);
+  box-shadow: 0 4px 20px rgba(212, 36, 38, 0.4);
+  padding: 5px 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo igual que admin/game */
+.player-header .logo {
+  transform: scale(3);
+  margin: 0 50px;
+}
+
+.player-header .logo .logo-img {
+  max-width: 250px;
+}
+
+/* Guirnalda de luces */
+.player-header::before {
+  content: '💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡';
+  position: absolute;
+  bottom: -12px;
+  left: 0;
+  right: 0;
+  font-size: 0.6rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  animation: christmasLights 1s ease-in-out infinite;
+}
+
+.connection-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius);
+  font-size: 0.875rem;
+  font-weight: var(--font-weight-bold);
+  color: white;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.connection-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.connection-dot.connected {
+  background: #00ff00;
+  box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
+  animation: pulse 2s infinite;
+}
+
+/* Contenedor principal */
+.player-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-lg);
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.player-card-main {
+  width: 100%;
+  max-width: 800px;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 0 60px rgba(212, 36, 38, 0.15),
+    0 0 60px rgba(11, 102, 35, 0.15);
+  overflow: hidden;
+  border: 4px solid var(--christmas-green);
+  animation: scaleIn 0.5s ease-out;
+  position: relative;
+}
+
+/* Guirnalda superior del card */
+.player-card-main::before {
+  content: '🎄⭐🎄⭐🎄⭐🎄';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  font-size: 1rem;
+  text-align: center;
+  letter-spacing: 0.5rem;
+  background: linear-gradient(90deg, var(--christmas-red), var(--christmas-green));
+  padding: 6px 0;
+  z-index: 10;
+  animation: christmasLights 2s ease-in-out infinite;
+}
+
+/* Estados del jugador */
+.player-state-container {
+  padding: var(--spacing-xl);
+  padding-top: calc(var(--spacing-xl) + 30px);
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f5 50%, #f5fff5 100%);
+}
+
+/* Esperando */
+.waiting-state {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.waiting-icon-big {
+  font-size: 8rem;
+  margin-bottom: var(--spacing-lg);
+  animation: float 3s ease-in-out infinite;
+}
+
+.waiting-title {
+  font-family: var(--font-family-christmas);
+  font-size: 2.5rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.waiting-message {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+}
+
+/* Pregunta */
+.question-container {
+  padding: var(--spacing-xl);
+  padding-top: calc(var(--spacing-xl) + 30px);
+  animation: slideInUp 0.5s ease-out;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fff5 100%);
+}
+
+.question-header-player {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-xl);
+  padding-bottom: var(--spacing-md);
+  border-bottom: 4px solid var(--christmas-green);
+}
+
+.question-number-badge {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-bold);
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(11, 102, 35, 0.3);
+  border: 2px solid var(--christmas-green-dark);
+}
+
+.timer-badge {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  box-shadow: 0 4px 15px rgba(212, 36, 38, 0.4);
+  animation: pulse 1s infinite;
+  border: 3px solid var(--christmas-red-dark);
+}
+
+.question-text-player {
+  font-size: 1.75rem;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: var(--spacing-xl);
+  line-height: 1.5;
+  font-weight: var(--font-weight-bold);
+}
+
+.answers-grid-player {
+  display: grid;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-lg);
+}
+
+.answer-btn-player {
+  background: linear-gradient(135deg, #fafafa 0%, #f5f5f5 100%);
+  border: 4px solid var(--christmas-green);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: left;
+}
+
+.answer-btn-player:hover:not(:disabled) {
+  border-color: var(--christmas-red);
+  background: linear-gradient(135deg, #fff5f5 0%, #ffecec 100%);
+  transform: translateX(8px);
+  box-shadow: 0 8px 20px rgba(212, 36, 38, 0.2);
+}
+
+.answer-btn-player.selected {
+  border-color: var(--christmas-red);
+  background: linear-gradient(135deg, #ffecec 0%, #ffd6d6 100%);
+  border-width: 5px;
+}
+
+.answer-btn-player:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.answer-letter-player {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(212, 36, 38, 0.3);
+  border: 3px solid var(--christmas-red-dark);
+}
+
+.answer-btn-player.selected .answer-letter-player {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  border-color: var(--christmas-green-dark);
+  box-shadow: 0 4px 10px rgba(11, 102, 35, 0.3);
+}
+
+.answer-text-player {
+  flex: 1;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  line-height: 1.4;
+}
+
+.answered-feedback {
+  text-align: center;
+  padding: var(--spacing-md);
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border: 3px solid var(--christmas-green);
+  border-radius: var(--border-radius);
+  color: var(--christmas-green-dark);
+  font-weight: var(--font-weight-bold);
+  font-size: 1.125rem;
+}
+
+/* Premio ganado - SUPER FESTIVO */
+.prize-screen {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, #8b0000 30%, #023020 70%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  text-align: center;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-2xl);
+  padding-top: calc(var(--spacing-2xl) + 30px);
+  animation: scaleIn 0.8s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Confeti navideño */
+.prize-screen::before {
+  content: '🎄 ⭐ 🎁 ❄️ 🔔 ✨ 🎅 🦌 🎄 ⭐';
+  position: absolute;
+  top: 50px;
+  left: 0;
+  right: 0;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.prize-screen::after {
+  content: '🎁 ❄️ 🔔 ✨ 🎅 🦌 🎄 ⭐ 🎁 ❄️';
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  font-size: 2rem;
+  letter-spacing: 1rem;
+  animation: float 3s ease-in-out infinite reverse;
+}
+
+.prize-icon-big {
+  font-size: 10rem;
+  margin-bottom: var(--spacing-lg);
+  animation: bounce 1s ease-out;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.4));
+}
+
+.prize-title-big {
+  font-family: var(--font-family-christmas);
+  font-size: 4rem;
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--spacing-md);
+  color: #ffffff;
+  text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.prize-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-md);
+  opacity: 0.95;
+}
+
+.prize-display-big {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-extrabold);
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-lg);
+  backdrop-filter: blur(10px);
+  margin-bottom: var(--spacing-lg);
+  border: 4px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+}
+
+.prize-message {
+  font-size: 1.125rem;
+  opacity: 0.9;
+}
+
+/* Juego finalizado */
+.finished-screen {
+  text-align: center;
+  animation: fadeIn 0.8s ease-out;
+}
+
+.finished-icon-player {
+  font-size: 8rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.finished-title-player {
+  font-family: var(--font-family-christmas);
+  font-size: 3rem;
+  color: var(--christmas-red);
+  margin-bottom: var(--spacing-md);
+  font-weight: var(--font-weight-bold);
+}
+
+.finished-message {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.final-prize-display {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border: 4px solid var(--christmas-green);
+  display: inline-block;
+}
+
+.final-prize-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+}
+
+.final-prize-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--christmas-green);
+}
+
+/* Animaciones */
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(-40px); }
+  50% { transform: translateY(0); }
+  75% { transform: translateY(-20px); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes christmasLights {
+  0%, 100% { filter: brightness(1); }
+  25% { filter: brightness(1.3) hue-rotate(10deg); }
+  50% { filter: brightness(1.5); }
+  75% { filter: brightness(1.3) hue-rotate(-10deg); }
+}
+
+/* ==========================================
+   RESPONSIVE - MÓVIL PANTALLA COMPLETA
+   ========================================== */
+
+@media (max-width: 768px) {
+  .player-game {
+    min-height: 100vh;
+    min-height: 100dvh;
+    height: 100vh;
+    height: 100dvh;
+  }
+  
+  .player-header {
+    padding: var(--spacing-sm) var(--spacing-md);
+    flex-shrink: 0;
+  }
+  
+  .player-header .logo {
+    transform: scale(1.5);
+    margin: 0 15px;
+  }
+  
+  .player-header::before {
+    font-size: 0.5rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .connection-badge {
+    padding: 0.35rem 0.75rem;
+    font-size: 0.75rem;
+  }
+  
+  .player-container {
+    padding: 0;
+    align-items: stretch;
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+  }
+  
+  .player-card-main {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 0;
+    border: none;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+  }
+  
+  .player-card-main::before {
+    font-size: 0.8rem;
+    letter-spacing: 0.3rem;
+    padding: 4px 0;
+  }
+  
+  .player-state-container {
+    flex: 1;
+    padding: var(--spacing-md);
+    padding-top: calc(var(--spacing-md) + 25px);
+    min-height: auto;
+    overflow-y: auto;
+  }
+  
+  .question-container {
+    flex: 1;
+    padding: var(--spacing-md);
+    padding-top: calc(var(--spacing-md) + 25px);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .question-header-player {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .question-number-badge {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.85rem;
+  }
+  
+  .timer-badge {
+    width: 55px;
+    height: 55px;
+    font-size: 1.5rem;
+  }
+  
+  .question-text-player {
+    font-size: 1.1rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .answers-grid-player {
+    flex: 1;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-sm);
+  }
+  
+  .answer-btn-player {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-width: 3px;
+  }
+  
+  .answer-btn-player:hover:not(:disabled) {
+    transform: none;
+  }
+  
+  .answer-letter-player {
+    width: 45px;
+    height: 45px;
+    font-size: 1.25rem;
+    border-width: 2px;
+  }
+  
+  .answer-text-player {
+    font-size: 0.95rem;
+  }
+  
+  .answered-feedback {
+    font-size: 1rem;
+    padding: var(--spacing-sm);
+  }
+  
+  .waiting-icon-big {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .waiting-title {
+    font-size: 1.75rem;
+  }
+  
+  .waiting-message {
+    font-size: 1rem;
+  }
+  
+  /* Premio en móvil */
+  .prize-screen {
+    padding: var(--spacing-lg);
+    padding-top: calc(var(--spacing-lg) + 25px);
+    min-height: auto;
+    flex: 1;
+    overflow-y: auto;
+  }
+  
+  .prize-screen::before,
+  .prize-screen::after {
+    font-size: 1rem;
+    letter-spacing: 0.3rem;
+  }
+  
+  .prize-screen::before {
+    top: 35px;
+  }
+  
+  .prize-icon-big {
+    font-size: 5rem;
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .prize-title-big {
+    font-size: 2rem;
+  }
+  
+  .prize-subtitle {
+    font-size: 1rem;
+  }
+  
+  .prize-display-big {
+    font-size: 1.5rem;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+  }
+  
+  .prize-message {
+    font-size: 0.9rem;
+  }
+  
+  /* Finalizado en móvil */
+  .finished-icon-player {
+    font-size: 5rem;
+  }
+  
+  .finished-title-player {
+    font-size: 2rem;
+  }
+  
+  .finished-message {
+    font-size: 1rem;
+  }
+  
+  .final-prize-display {
+    padding: var(--spacing-md);
+  }
+  
+  .final-prize-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .question-text-player {
+    font-size: 1rem;
+  }
+  
+  .answer-letter-player {
+    width: 40px;
+    height: 40px;
+    font-size: 1.1rem;
+  }
+  
+  .answer-text-player {
+    font-size: 0.9rem;
+  }
+  
+  .waiting-icon-big {
+    font-size: 4rem;
+  }
+  
+  .waiting-title {
+    font-size: 1.5rem;
+  }
+  
+  .prize-icon-big {
+    font-size: 4rem;
+  }
+  
+  .prize-title-big {
+    font-size: 1.75rem;
+  }
+  
+  .prize-display-big {
+    font-size: 1.25rem;
+  }
+}

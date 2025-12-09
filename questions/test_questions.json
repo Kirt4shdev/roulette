@@ -1,0 +1,948 @@
+[
+  {
+    "id": 1,
+    "question": "Cual de estas frases diria Michel",
+    "answers": [
+      { "text": "Vamos a darle cana a esto", "correct": false },
+      { "text": "Lo tenemos controlado", "correct": false },
+      { "text": "Hay que pincharle sangre de mono para ver si se acelera", "correct": true },
+      { "text": "Esto esta chupado", "correct": false }
+    ]
+  },
+  {
+    "id": 2,
+    "question": "Palabra predilecta de Elena H:",
+    "answers": [
+      { "text": "Efectivamente", "correct": false },
+      { "text": "Sopena", "correct": true },
+      { "text": "Obviamente", "correct": false },
+      { "text": "Basicamente", "correct": false }
+    ]
+  },
+  {
+    "id": 3,
+    "question": "Palabra favorita de Eva",
+    "answers": [
+      { "text": "
+
+", "correct": false },
+      { "text": "
+
+", "correct": false },
+      { "text": "Merequetengue", "correct": true },
+      { "text": "
+
+", "correct": false }
+    ]
+  },
+  {
+    "id": 4,
+    "question": "Que diria Sonia despues de recibir un mail de Comunicaciones?",
+    "answers": [
+      { "text": "Que interesante!", "correct": false },
+      { "text": "Ya lo he leido todo", "correct": false },
+      { "text": "Me encanta este formato", "correct": false },
+      { "text": "Entonces, que hay que hacer?", "correct": true }
+    ]
+  },
+  {
+    "id": 5,
+    "question": "Saludo favorito de Alfonso",
+    "answers": [
+      { "text": "Buenas tardes!", "correct": false },
+      { "text": "Dias Buenos", "correct": true },
+      { "text": "Hola a todos!", "correct": false },
+      { "text": "Que tal estamos?", "correct": false }
+    ]
+  },
+  {
+    "id": 6,
+    "question": "Que celebramos los viernes",
+    "answers": [
+      { "text": "Viernes casual", "correct": false },
+      { "text": "Happy Friday", "correct": false },
+      { "text": "Fin de semana", "correct": false },
+      { "text": "San Viernes", "correct": true }
+    ]
+  },
+  {
+    "id": 7,
+    "question": "Cajon de chocolates",
+    "answers": [
+      { "text": "Eva", "correct": false },
+      { "text": "Michel", "correct": true },
+      { "text": "Alfonso", "correct": false },
+      { "text": "Elena H", "correct": false }
+    ]
+  },
+  {
+    "id": 8,
+    "question": "Quien perdio la cesta miserablemente el ano pasado?",
+    "answers": [
+      { "text": "Miguel Carrasco", "correct": false },
+      { "text": "Alfonso", "correct": false },
+      { "text": "Michel", "correct": false },
+      { "text": "Hector", "correct": true }
+    ]
+  },
+  {
+    "id": 9,
+    "question": "Quien tiene mas LEGO en la oficina?",
+    "answers": [
+      { "text": "Hector", "correct": true },
+      { "text": "Miguel Carrasco", "correct": false },
+      { "text": "Raul", "correct": false },
+      { "text": "Diego", "correct": false }
+    ]
+  },
+  {
+    "id": 10,
+    "question": "Quien tiene apodo de un animal subterraneo?",
+    "answers": [
+      { "text": "Fernando Suarez", "correct": false },
+      { "text": "Juan Alamo", "correct": false },
+      { "text": "Antonio Corbalan", "correct": true },
+      { "text": "Alberto Perez", "correct": false }
+    ]
+  },
+  {
+    "id": 11,
+    "question": "Quien pertenece al equipo gambita?",
+    "answers": [
+      { "text": "Hector", "correct": false },
+      { "text": "Miguel Carrasco", "correct": false },
+      { "text": "Alfonso", "correct": true },
+      { "text": "Eduardo", "correct": false }
+    ]
+  },
+  {
+    "id": 12,
+    "question": "Quien es la barman de Calendula",
+    "answers": [
+      { "text": "Elena H", "correct": false },
+      { "text": "Eva", "correct": true },
+      { "text": "Sonia", "correct": false },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 13,
+    "question": "Que animal tiene Miguel Carrasco en la taza?",
+    "answers": [
+      { "text": "Un gato ninja", "correct": false },
+      { "text": "Un patito con un cuchillo amenazante", "correct": true },
+      { "text": "Un unicornio enfadado", "correct": false },
+      { "text": "Un oso con gafas", "correct": false }
+    ]
+  },
+  {
+    "id": 14,
+    "question": "Quien ha osado a volver al mundo renovable",
+    "answers": [
+      { "text": "Fernando Alfageme", "correct": false },
+      { "text": "Alberto Perez", "correct": false },
+      { "text": "Juan Antonio V", "correct": false },
+      { "text": "Jose Bascones", "correct": true }
+    ]
+  },
+  {
+    "id": 15,
+    "question": "Quien ha entrado y salido de la empresa visto y no visto este ano",
+    "answers": [
+      { "text": "Un tal Vicente", "correct": true },
+      { "text": "Un tal Roberto", "correct": false },
+      { "text": "Un tal Carlos", "correct": false },
+      { "text": "Un tal Pedro", "correct": false }
+    ]
+  },
+  {
+    "id": 16,
+    "question": "Quien es la persona que mas ha cambiado de departamento en su historia en Dilus",
+    "answers": [
+      { "text": "Sofia", "correct": false },
+      { "text": "Aylen", "correct": true },
+      { "text": "Sandra", "correct": false },
+      { "text": "Marta", "correct": false }
+    ]
+  },
+  {
+    "id": 17,
+    "question": "Quien tiene un hermano gemelo",
+    "answers": [
+      { "text": "Diego", "correct": false },
+      { "text": "Raul", "correct": true },
+      { "text": "Hector", "correct": false },
+      { "text": "Miguel", "correct": false }
+    ]
+  },
+  {
+    "id": 18,
+    "question": "Quien resucito en Dilus?",
+    "answers": [
+      { "text": "Jose Bascones", "correct": false },
+      { "text": "Aylen (Jose ha sido levantamiento de cadaver)", "correct": true },
+      { "text": "Fernando Alfageme", "correct": false },
+      { "text": "Alberto Perez", "correct": false }
+    ]
+  },
+  {
+    "id": 19,
+    "question": "Como se llama el datalogger de Grupo Dilus?",
+    "answers": [
+      { "text": "DataDilus Pro", "correct": false },
+      { "text": "Neologg Pro", "correct": true },
+      { "text": "LogMaster 3000", "correct": false },
+      { "text": "DilusLogger", "correct": false }
+    ]
+  },
+  {
+    "id": 20,
+    "question": "Como se llama el cactus de Laura Baez?",
+    "answers": [
+      { "text": "Pinchito", "correct": false },
+      { "text": "Espinete", "correct": false },
+      { "text": "Cactusin", "correct": false },
+      { "text": "Pepinillo", "correct": true }
+    ]
+  },
+  {
+    "id": 21,
+    "question": "Cual es la unica manera en la que leemos los mails de Comunicaciones",
+    "answers": [
+      { "text": "De arriba a abajo", "correct": false },
+      { "text": "En diagonal / En oblicuo", "correct": true },
+      { "text": "Solo el asunto", "correct": false },
+      { "text": "Palabra por palabra", "correct": false }
+    ]
+  },
+  {
+    "id": 22,
+    "question": "Quien tiene una patata positiva en su mesa",
+    "answers": [
+      { "text": "Eva", "correct": false },
+      { "text": "Elena H", "correct": false },
+      { "text": "Sofia", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 23,
+    "question": "Cual es el titulo oficial en Soluciones 4.0 de Miguel Carrasco?",
+    "answers": [
+      { "text": "Jefe Supremo", "correct": false },
+      { "text": "Amado lider", "correct": true },
+      { "text": "Gran Maestre", "correct": false },
+      { "text": "Comandante en Jefe", "correct": false }
+    ]
+  },
+  {
+    "id": 24,
+    "question": "Tres Cantos, ese paradero tambien llamado",
+    "answers": [
+      { "text": "3 Piedras", "correct": false },
+      { "text": "Tres Rocas", "correct": false },
+      { "text": "3 estones", "correct": true },
+      { "text": "Triple Canto", "correct": false }
+    ]
+  },
+  {
+    "id": 25,
+    "question": "Ahi donde lo veis es un corredor nato",
+    "answers": [
+      { "text": "Fernando Suarez", "correct": false },
+      { "text": "Alberto Perez", "correct": false },
+      { "text": "Juan Antonio V", "correct": true },
+      { "text": "Patrick", "correct": false }
+    ]
+  },
+  {
+    "id": 26,
+    "question": "Cual es el saludo estandarizado de Fernando Alfageme",
+    "answers": [
+      { "text": "Buenos dias campeon!", "correct": false },
+      { "text": "Hola crack!", "correct": false },
+      { "text": "Que pasa hermano!", "correct": true },
+      { "text": "Ey colega!", "correct": false }
+    ]
+  },
+  {
+    "id": 27,
+    "question": "Quien se ha casado este ano?",
+    "answers": [
+      { "text": "Elena H y Alberto Perez", "correct": false },
+      { "text": "Eva y Fernando", "correct": false },
+      { "text": "Sofia y Raul", "correct": false },
+      { "text": "Marta Gonzalez y Daniel Morales", "correct": true }
+    ]
+  },
+  {
+    "id": 28,
+    "question": "Quien ha tenido una hija llamada Alicia este ano?",
+    "answers": [
+      { "text": "Hector", "correct": false },
+      { "text": "Michel", "correct": false },
+      { "text": "Alfonso", "correct": false },
+      { "text": "Miguel Carrasco", "correct": true }
+    ]
+  },
+  {
+    "id": 29,
+    "question": "Que le decimos siempre a Michel cuando habla de su hija?",
+    "answers": [
+      { "text": "Estas criando carne para los lobos", "correct": true },
+      { "text": "Que rapido crecen", "correct": false },
+      { "text": "Ya veras cuando sea adolescente", "correct": false },
+      { "text": "Disfruta que pasa volando", "correct": false }
+    ]
+  },
+  {
+    "id": 30,
+    "question": "Quien tiene un perro con nombre de cerveza",
+    "answers": [
+      { "text": "Eva", "correct": false },
+      { "text": "Elena H", "correct": false },
+      { "text": "Sofia", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 31,
+    "question": "Consumidor oficial de chicles en la empresa",
+    "answers": [
+      { "text": "Don Alfonso Garcia", "correct": false },
+      { "text": "Don Miguel Carrasco", "correct": false },
+      { "text": "Don Eduardo de Ugarte", "correct": true },
+      { "text": "Don Fernando Alfageme", "correct": false }
+    ]
+  },
+  {
+    "id": 32,
+    "question": "Consumidora oficial de Red Bull y Monsters en la empresa",
+    "answers": [
+      { "text": "Eva", "correct": false },
+      { "text": "Elena H", "correct": false },
+      { "text": "Sonia", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 33,
+    "question": "Cuantas clases de galletas se consumen en Valdelaparra",
+    "answers": [
+      { "text": "5", "correct": false },
+      { "text": "3", "correct": false },
+      { "text": "7", "correct": true },
+      { "text": "10", "correct": false }
+    ]
+  },
+  {
+    "id": 34,
+    "question": "Quien despide sus correos como el periodista Jose Maria Garcia",
+    "answers": [
+      { "text": "Sandra", "correct": true },
+      { "text": "Elena H", "correct": false },
+      { "text": "Eva", "correct": false },
+      { "text": "Sonia", "correct": false }
+    ]
+  },
+  {
+    "id": 35,
+    "question": "Como se llama el departamento de Sofia/Susana/Angeles",
+    "answers": [
+      { "text": "Sistema Integrado de Gestion", "correct": true },
+      { "text": "Control de Calidad", "correct": false },
+      { "text": "Recursos Humanos", "correct": false },
+      { "text": "Gestion Administrativa", "correct": false }
+    ]
+  },
+  {
+    "id": 36,
+    "question": "A quien no se le puede tocar el calendario?",
+    "answers": [
+      { "text": "Eva", "correct": false },
+      { "text": "Sonia", "correct": false },
+      { "text": "Elena H", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 37,
+    "question": "Quien otorga la presidencia del Comite de Festejos?",
+    "answers": [
+      { "text": "Elena H", "correct": false },
+      { "text": "Sonia", "correct": false },
+      { "text": "Eva", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 38,
+    "question": "Buceador profesional",
+    "answers": [
+      { "text": "Juan Antonio V", "correct": false },
+      { "text": "Fernando Suarez", "correct": true },
+      { "text": "Alberto Perez", "correct": false },
+      { "text": "Patrick", "correct": false }
+    ]
+  },
+  {
+    "id": 39,
+    "question": "Que se acaricia D. Juan Alamo para pensar mejor",
+    "answers": [
+      { "text": "La cabeza", "correct": false },
+      { "text": "La barba", "correct": true },
+      { "text": "El menton", "correct": false },
+      { "text": "La oreja", "correct": false }
+    ]
+  },
+  {
+    "id": 40,
+    "question": "Frase tendencia del ano 2024 en Calendula",
+    "answers": [
+      { "text": "Que te den morcilla", "correct": false },
+      { "text": "Que te peines con un muslo de pollo", "correct": true },
+      { "text": "Que te zurzan", "correct": false },
+      { "text": "Anda y que te ondulen", "correct": false }
+    ]
+  },
+  {
+    "id": 41,
+    "question": "Que es marcarse un BLV",
+    "answers": [
+      { "text": "Un Buscate La Vida", "correct": true },
+      { "text": "Un Buena Labor Visible", "correct": false },
+      { "text": "Un Bajo La Vista", "correct": false },
+      { "text": "Un Bien Lo Veo", "correct": false }
+    ]
+  },
+  {
+    "id": 42,
+    "question": "Como se mide el nivel de marron de un asunto",
+    "answers": [
+      { "text": "Por el numero de exclamaciones", "correct": false },
+      { "text": "Por el numero de emojis de cacas con ojos", "correct": true },
+      { "text": "Por el numero de mayusculas", "correct": false },
+      { "text": "Por el numero de mensajes urgentes", "correct": false }
+    ]
+  },
+  {
+    "id": 43,
+    "question": "Desastre de alto nivel",
+    "answers": [
+      { "text": "Follon de proporciones Biblicas", "correct": true },
+      { "text": "Marron galactico", "correct": false },
+      { "text": "Caos cosmico", "correct": false },
+      { "text": "Apocalipsis laboral", "correct": false }
+    ]
+  },
+  {
+    "id": 44,
+    "question": "Cogerse la baja por no estar a la altura",
+    "answers": [
+      { "text": "Marcarse un Vicente", "correct": false },
+      { "text": "Marcarse un Alberto", "correct": false },
+      { "text": "Marcarse un Fernando", "correct": false },
+      { "text": "Marcarse un Mary", "correct": true }
+    ]
+  },
+  {
+    "id": 45,
+    "question": "Quien oso llamar Chiquitin al jefe",
+    "answers": [
+      { "text": "Miguel Carrasco", "correct": false },
+      { "text": "Alfonso", "correct": true },
+      { "text": "Hector", "correct": false },
+      { "text": "Eduardo", "correct": false }
+    ]
+  },
+  {
+    "id": 46,
+    "question": "Con que cancion se avisa del momento Cafe",
+    "answers": [
+      { "text": "Coffee Time", "correct": false },
+      { "text": "Cafe para todos", "correct": false },
+      { "text": "La hora del cafe", "correct": false },
+      { "text": "Expresso Macchiato", "correct": true }
+    ]
+  },
+  {
+    "id": 47,
+    "question": "Originario de Valdelaparra",
+    "answers": [
+      { "text": "Valdeparreno", "correct": false },
+      { "text": "Valdeparrense", "correct": false },
+      { "text": "Valdeparriano", "correct": true },
+      { "text": "Valdeparres", "correct": false }
+    ]
+  },
+  {
+    "id": 48,
+    "question": "Originario de Calendula",
+    "answers": [
+      { "text": "Calenduliano", "correct": true },
+      { "text": "Calendulense", "correct": false },
+      { "text": "Calenduleno", "correct": false },
+      { "text": "Calendules", "correct": false }
+    ]
+  },
+  {
+    "id": 49,
+    "question": "A quien apodamos como una estacion del ano",
+    "answers": [
+      { "text": "Julio (Verano)", "correct": false },
+      { "text": "Augusto (Ogost)", "correct": true },
+      { "text": "Abril (Primavera)", "correct": false },
+      { "text": "Noel (Invierno)", "correct": false }
+    ]
+  },
+  {
+    "id": 50,
+    "question": "Quien hace referencia a un personaje de la serie Vikingos",
+    "answers": [
+      { "text": "Fernando (Ragnar)", "correct": false },
+      { "text": "Alberto (Bjorn)", "correct": false },
+      { "text": "Juan (Floki)", "correct": false },
+      { "text": "Enrique Ahijon (Loki)", "correct": true }
+    ]
+  },
+  {
+    "id": 51,
+    "question": "Persona mas veterana de la empresa",
+    "answers": [
+      { "text": "Elena H", "correct": false },
+      { "text": "Alberto Perez", "correct": true },
+      { "text": "Roberto", "correct": false },
+      { "text": "Fernando", "correct": false }
+    ]
+  },
+  {
+    "id": 52,
+    "question": "Accesorio textil mas preciado de Gustavo",
+    "answers": [
+      { "text": "El gorro", "correct": true },
+      { "text": "La bufanda", "correct": false },
+      { "text": "Los guantes", "correct": false },
+      { "text": "La chaqueta", "correct": false }
+    ]
+  },
+  {
+    "id": 53,
+    "question": "El mas parecido a un pelocho",
+    "answers": [
+      { "text": "Miguel", "correct": false },
+      { "text": "Hector", "correct": true },
+      { "text": "Alfonso", "correct": false },
+      { "text": "Raul", "correct": false }
+    ]
+  },
+  {
+    "id": 54,
+    "question": "El mas reconocido por sus melenas",
+    "answers": [
+      { "text": "Roberto", "correct": true },
+      { "text": "Fernando", "correct": false },
+      { "text": "Alberto", "correct": false },
+      { "text": "Gustavo", "correct": false }
+    ]
+  },
+  {
+    "id": 55,
+    "question": "Eventos de esparcimiento social",
+    "answers": [
+      { "text": "Afterwork", "correct": false },
+      { "text": "Mercerves", "correct": true },
+      { "text": "Happy Hour", "correct": false },
+      { "text": "Team Building", "correct": false }
+    ]
+  },
+  {
+    "id": 56,
+    "question": "Descripcion de Madrid segun Augusto",
+    "answers": [
+      { "text": "Jungla de asfalto", "correct": false },
+      { "text": "Caos organizado", "correct": false },
+      { "text": "Hormiguero sin guion", "correct": true },
+      { "text": "Locura controlada", "correct": false }
+    ]
+  },
+  {
+    "id": 57,
+    "question": "Quien subio al 2 piso y se penso que estaba en las puertas del cielo",
+    "answers": [
+      { "text": "Sofia", "correct": true },
+      { "text": "Sandra", "correct": false },
+      { "text": "Eva", "correct": false },
+      { "text": "Elena H", "correct": false }
+    ]
+  },
+  {
+    "id": 58,
+    "question": "Frase trending 2025",
+    "answers": [
+      { "text": "Por si acaso", "correct": false },
+      { "text": "En principio", "correct": false },
+      { "text": "Por lo que sea", "correct": true },
+      { "text": "Ya veremos", "correct": false }
+    ]
+  },
+  {
+    "id": 59,
+    "question": "Frase hit despues de oir una buena queja",
+    "answers": [
+      { "text": "That is life", "correct": false },
+      { "text": "Have studied", "correct": true },
+      { "text": "Such is life", "correct": false },
+      { "text": "Life goes on", "correct": false }
+    ]
+  },
+  {
+    "id": 60,
+    "question": "Apodo de Juan Alamo",
+    "answers": [
+      { "text": "Palomas", "correct": false },
+      { "text": "Gorriones", "correct": false },
+      { "text": "Vencejos", "correct": false },
+      { "text": "Golondrinas", "correct": true }
+    ]
+  },
+  {
+    "id": 61,
+    "question": "Quienes alargan las vocales cuando hablan",
+    "answers": [
+      { "text": "Los de administracion", "correct": false },
+      { "text": "Los comerciales", "correct": false },
+      { "text": "Los de RRHH", "correct": false },
+      { "text": "Los tecnicos", "correct": true }
+    ]
+  },
+  {
+    "id": 62,
+    "question": "Vegetariano de la empresa",
+    "answers": [
+      { "text": "Sandra", "correct": false },
+      { "text": "Juan", "correct": false },
+      { "text": "Julio", "correct": true },
+      { "text": "Eva", "correct": false }
+    ]
+  },
+  {
+    "id": 63,
+    "question": "Quien es la persona mas joven de la empresa",
+    "answers": [
+      { "text": "Diego", "correct": true },
+      { "text": "Chiara", "correct": false },
+      { "text": "Raul", "correct": false },
+      { "text": "Aylen", "correct": false }
+    ]
+  },
+  {
+    "id": 64,
+    "question": "Quien ocupa el puesto Resp.Secc. T/AR",
+    "answers": [
+      { "text": "Elena H", "correct": false },
+      { "text": "Sonia", "correct": false },
+      { "text": "Marbelis", "correct": true },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 65,
+    "question": "Que significa ITS en el area comercial",
+    "answers": [
+      { "text": "Integracion Total de Sistemas", "correct": false },
+      { "text": "Infraestructura Tecnologica Segura", "correct": false },
+      { "text": "Innovacion Tecnica Sostenible", "correct": false },
+      { "text": "Sistemas Inteligentes de Transporte", "correct": true }
+    ]
+  },
+  {
+    "id": 66,
+    "question": "A cual de estos sectores NO nos dedicamos",
+    "answers": [
+      { "text": "Energias renovables", "correct": false },
+      { "text": "Volcanes, Terremotos, Incendios...", "correct": true },
+      { "text": "Transporte inteligente", "correct": false },
+      { "text": "Meteorologia", "correct": false }
+    ]
+  },
+  {
+    "id": 67,
+    "question": "Respuesta de insecto muy empleada en el dia a dia",
+    "answers": [
+      { "text": "Bzzz Bzzz", "correct": false },
+      { "text": "Cri Cri", "correct": true },
+      { "text": "Zzz Zzz", "correct": false },
+      { "text": "Croac Croac", "correct": false }
+    ]
+  },
+  {
+    "id": 68,
+    "question": "Que color es el corporativo de Sequopro actualmente",
+    "answers": [
+      { "text": "Rojo", "correct": true },
+      { "text": "Verde", "correct": false },
+      { "text": "Azul", "correct": false },
+      { "text": "Naranja", "correct": false }
+    ]
+  },
+  {
+    "id": 69,
+    "question": "Personal de Seguridad de Calendula, tambien conocido como...",
+    "answers": [
+      { "text": "El vigilante", "correct": false },
+      { "text": "El portero", "correct": false },
+      { "text": "Torrente", "correct": true },
+      { "text": "El guardian", "correct": false }
+    ]
+  },
+  {
+    "id": 70,
+    "question": "Nombre coloquial de las ausencias de larga duracion",
+    "answers": [
+      { "text": "Vacaciones infinitas", "correct": false },
+      { "text": "Descanso prolongado", "correct": false },
+      { "text": "Bajaciones", "correct": true },
+      { "text": "Ausencias eternas", "correct": false }
+    ]
+  },
+  {
+    "id": 71,
+    "question": "Resopladora universal ante carga de trabajo",
+    "answers": [
+      { "text": "Elena H", "correct": true },
+      { "text": "Eva", "correct": false },
+      { "text": "Sonia", "correct": false },
+      { "text": "Sandra", "correct": false }
+    ]
+  },
+  {
+    "id": 72,
+    "question": "En que centro se reza el rosario",
+    "answers": [
+      { "text": "Valdelaparra", "correct": false },
+      { "text": "Tres Cantos", "correct": false },
+      { "text": "Calendula", "correct": true },
+      { "text": "Ninguno", "correct": false }
+    ]
+  },
+  {
+    "id": 73,
+    "question": "Titulo oficial de Paseante Telefonico",
+    "answers": [
+      { "text": "Alberto Perez", "correct": true },
+      { "text": "Fernando Alfageme", "correct": false },
+      { "text": "Patrick", "correct": false },
+      { "text": "Juan Antonio V", "correct": false }
+    ]
+  },
+  {
+    "id": 74,
+    "question": "Quien tiene el movil como parte extensiva de su oreja incorporada a su cuerpo",
+    "answers": [
+      { "text": "Alberto", "correct": false },
+      { "text": "Patrick", "correct": true },
+      { "text": "Fernando", "correct": false },
+      { "text": "Eduardo", "correct": false }
+    ]
+  },
+  {
+    "id": 75,
+    "question": "Apellido correcto de Albert",
+    "answers": [
+      { "text": "Creitxell", "correct": false },
+      { "text": "Creitxel", "correct": false },
+      { "text": "Creixel", "correct": false },
+      { "text": "Creixell", "correct": true }
+    ]
+  },
+  {
+    "id": 76,
+    "question": "El nombre mejor relacionado con el nombre de su empresa",
+    "answers": [
+      { "text": "Alberto", "correct": false },
+      { "text": "Fernando", "correct": false },
+      { "text": "Juan", "correct": false },
+      { "text": "Marino", "correct": true }
+    ]
+  },
+  {
+    "id": 77,
+    "question": "Despedida habitual en los correos de Oswaldo",
+    "answers": [
+      { "text": "Un abrazo", "correct": false },
+      { "text": "Salud!", "correct": true },
+      { "text": "Saludos cordiales", "correct": false },
+      { "text": "Hasta pronto", "correct": false }
+    ]
+  },
+  {
+    "id": 78,
+    "question": "Cuantos hijos tiene el CEO",
+    "answers": [
+      { "text": "1", "correct": false },
+      { "text": "3", "correct": false },
+      { "text": "2", "correct": true },
+      { "text": "4", "correct": false }
+    ]
+  },
+  {
+    "id": 79,
+    "question": "Apellido correcto de Diego",
+    "answers": [
+      { "text": "Roahrik", "correct": false },
+      { "text": "Rojarik", "correct": false },
+      { "text": "Roharik", "correct": true },
+      { "text": "Rohrik", "correct": false }
+    ]
+  },
+  {
+    "id": 80,
+    "question": "2 Apellido correcto de Julio",
+    "answers": [
+      { "text": "Loyaza", "correct": false },
+      { "text": "Loyza", "correct": false },
+      { "text": "Loayza", "correct": true },
+      { "text": "Loaiza", "correct": false }
+    ]
+  },
+  {
+    "id": 81,
+    "question": "Nombres mas repetidos en la empresa",
+    "answers": [
+      { "text": "Enrique y Juan", "correct": true },
+      { "text": "Antonio y Daniel", "correct": false },
+      { "text": "Fernando y Miguel", "correct": false },
+      { "text": "Alberto y Jose", "correct": false }
+    ]
+  },
+  {
+    "id": 82,
+    "question": "Apellido correcto de Andres",
+    "answers": [
+      { "text": "Mombiela", "correct": true },
+      { "text": "Nombiela", "correct": false },
+      { "text": "Mombila", "correct": false },
+      { "text": "Monbiela", "correct": false }
+    ]
+  },
+  {
+    "id": 83,
+    "question": "Segundo Apellido de Eduardo",
+    "answers": [
+      { "text": "LLosa", "correct": false },
+      { "text": "De Ugarte", "correct": false },
+      { "text": "Martinez", "correct": true },
+      { "text": "Garcia", "correct": false }
+    ]
+  },
+  {
+    "id": 84,
+    "question": "Lema de Dilus",
+    "answers": [
+      { "text": "Pasion por la precision", "correct": true },
+      { "text": "Precision sin limites", "correct": false },
+      { "text": "Excelencia en medicion", "correct": false },
+      { "text": "Innovacion con precision", "correct": false }
+    ]
+  },
+  {
+    "id": 85,
+    "question": "Que animal pisoteo los paneles en una planta y dejo sus pastelitos en los cables",
+    "answers": [
+      { "text": "Una cabra", "correct": false },
+      { "text": "Una vaca", "correct": false },
+      { "text": "Una oveja", "correct": true },
+      { "text": "Un cerdo", "correct": false }
+    ]
+  },
+  {
+    "id": 86,
+    "question": "Como es llamado Sequopro por ciertas personas",
+    "answers": [
+      { "text": "Sequpro", "correct": false },
+      { "text": "Secupro", "correct": true },
+      { "text": "Secopro", "correct": false },
+      { "text": "Sequipro", "correct": false }
+    ]
+  },
+  {
+    "id": 87,
+    "question": "Como se define Valdelaparra 27?",
+    "answers": [
+      { "text": "Edificio Corporativo", "correct": false },
+      { "text": "Complejo Industrial", "correct": true },
+      { "text": "Centro de Negocios", "correct": false },
+      { "text": "Parque Empresarial", "correct": false }
+    ]
+  },
+  {
+    "id": 88,
+    "question": "Con que siglas identificamos las ofertas de la empresa",
+    "answers": [
+      { "text": "OF", "correct": false },
+      { "text": "OV", "correct": true },
+      { "text": "OE", "correct": false },
+      { "text": "OP", "correct": false }
+    ]
+  },
+  {
+    "id": 89,
+    "question": "Con que siglas identificamos los pedidos de la empresa",
+    "answers": [
+      { "text": "PE", "correct": false },
+      { "text": "PD", "correct": false },
+      { "text": "PO", "correct": true },
+      { "text": "PP", "correct": false }
+    ]
+  },
+  {
+    "id": 90,
+    "question": "Que es lo que nunca se debe hacer en Dilus?",
+    "answers": [
+      { "text": "Llegar tarde", "correct": false },
+      { "text": "Dar por hecho", "correct": true },
+      { "text": "Preguntar demasiado", "correct": false },
+      { "text": "Enviar emails largos", "correct": false }
+    ]
+  },
+  {
+    "id": 91,
+    "question": "Nunca te fies de las frases que empiezan por...",
+    "answers": [
+      { "text": "Creo que si...", "correct": false },
+      { "text": "Imagino que si / Supongo que si se hace", "correct": true },
+      { "text": "Probablemente...", "correct": false },
+      { "text": "Quiza...", "correct": false }
+    ]
+  },
+  {
+    "id": 92,
+    "question": "Quien dispara su pistola en Calendula?",
+    "answers": [
+      { "text": "El Vigilante", "correct": false },
+      { "text": "El Consigna", "correct": true },
+      { "text": "El Portero", "correct": false },
+      { "text": "El Jefe", "correct": false }
+    ]
+  },
+  {
+    "id": 93,
+    "question": "Que no le puede faltar a Elena H por la manana?",
+    "answers": [
+      { "text": "Cafe con leche", "correct": false },
+      { "text": "Te verde", "correct": false },
+      { "text": "Manzanilla con Anis", "correct": true },
+      { "text": "Zumo de naranja", "correct": false }
+    ]
+  },
+  {
+    "id": 94,
+    "question": "Como se representaron todos los procesos de Dilus en el evento?",
+    "answers": [
+      { "text": "Con un PowerPoint", "correct": false },
+      { "text": "Con una cuerda y lazos", "correct": true },
+      { "text": "Con post-its de colores", "correct": false },
+      { "text": "Con un video explicativo", "correct": false }
+    ]
+  }
+]

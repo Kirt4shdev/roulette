@@ -1,0 +1,617 @@
+.admin-dashboard {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #0a1628 0%, #1a1a2e 50%, #0d2137 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ❄️ Efecto de nieve y estrellas */
+.admin-dashboard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    radial-gradient(3px 3px at 10% 20%, rgba(255, 255, 255, 0.9), transparent),
+    radial-gradient(2px 2px at 30% 40%, rgba(255, 255, 255, 0.7), transparent),
+    radial-gradient(4px 4px at 50% 10%, rgba(255, 255, 255, 1), transparent),
+    radial-gradient(2px 2px at 70% 60%, rgba(255, 255, 255, 0.6), transparent),
+    radial-gradient(3px 3px at 90% 30%, rgba(255, 255, 255, 0.8), transparent),
+    radial-gradient(2px 2px at 20% 80%, rgba(255, 255, 255, 0.7), transparent);
+  background-size: 200px 200px;
+  animation: twinkle 3s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Header navideño */
+.dashboard-header {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  border-bottom: 5px solid var(--christmas-green);
+  box-shadow: 0 4px 20px rgba(212, 36, 38, 0.4);
+  padding: 5px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.dashboard-header .logo {
+  transform: scale(3);
+  margin: 0 50px;
+}
+
+.dashboard-header .logo .logo-img {
+  max-width: 250px;
+}
+
+/* Guirnalda de luces */
+.dashboard-header::before {
+  content: '💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡🔴🟢💡';
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  right: 0;
+  font-size: 0.7rem;
+  text-align: center;
+  letter-spacing: 0.3rem;
+  animation: christmasLights 1s ease-in-out infinite;
+  z-index: 101;
+}
+
+.header-content {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.header-title {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.header-title h1 {
+  font-family: var(--font-family-christmas);
+  font-size: 2rem;
+  font-weight: var(--font-weight-bold);
+  color: white;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header-title p {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin: 0;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  background: var(--christmas-green);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: var(--font-weight-bold);
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 2px solid var(--christmas-green-dark);
+  box-shadow: 0 0 15px rgba(11, 102, 35, 0.4);
+}
+
+/* Main content */
+.dashboard-main {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  padding-top: calc(var(--spacing-xl) + 10px);
+  position: relative;
+  z-index: 1;
+}
+
+/* Layout en dos columnas */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-xl);
+}
+
+/* Sección principal izquierda */
+.main-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.welcome-card {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-xl);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(11, 102, 35, 0.2);
+  border: 4px solid var(--christmas-green-dark);
+  position: relative;
+  overflow: hidden;
+}
+
+.welcome-card::before {
+  content: '🎄 ⭐ 🎁 ❄️ 🎅';
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.welcome-card::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+}
+
+.welcome-content {
+  position: relative;
+  z-index: 1;
+}
+
+.welcome-content h2 {
+  font-family: var(--font-family-christmas);
+  font-size: 2.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--text-white);
+  font-weight: var(--font-weight-bold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.welcome-content p {
+  font-size: 1.125rem;
+  opacity: 0.95;
+  margin-bottom: var(--spacing-lg);
+}
+
+/* Configuración del juego */
+.config-card {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 15px 40px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(212, 36, 38, 0.1);
+  overflow: hidden;
+  border: 4px solid var(--christmas-red);
+}
+
+.config-header {
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-lg);
+  position: relative;
+}
+
+.config-header::after {
+  content: '❄️🎄❄️';
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.5rem;
+  animation: twinkle 2s ease-in-out infinite;
+}
+
+.config-header h3 {
+  font-family: var(--font-family-christmas);
+  margin: 0;
+  font-size: 1.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--text-white);
+  font-weight: var(--font-weight-bold);
+}
+
+.config-body {
+  padding: var(--spacing-xl);
+  background: linear-gradient(180deg, #ffffff 0%, #fff5f5 50%, #f5fff5 100%);
+}
+
+.config-option {
+  margin-bottom: var(--spacing-xl);
+}
+
+.config-label {
+  display: block;
+  font-weight: var(--font-weight-bold);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+  font-size: 1.125rem;
+}
+
+.number-selector {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-lg);
+  background: linear-gradient(135deg, #f5fff5 0%, #fff5f5 100%);
+  border-radius: var(--border-radius-lg);
+  border: 3px dashed var(--christmas-green);
+}
+
+.number-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--christmas-red) 0%, var(--christmas-red-dark) 100%);
+  color: var(--text-white);
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: 3px solid var(--christmas-red-dark);
+  box-shadow: 0 4px 15px rgba(212, 36, 38, 0.4);
+  transition: var(--transition);
+}
+
+.number-btn:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(212, 36, 38, 0.5);
+}
+
+.number-btn:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+.number-btn:disabled {
+  background: linear-gradient(135deg, #cbd5e1 0%, #94a3b8 100%);
+  cursor: not-allowed;
+  opacity: 0.5;
+  border-color: #94a3b8;
+}
+
+.number-display {
+  font-size: 4rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--christmas-green);
+  min-width: 120px;
+  text-align: center;
+  background: var(--bg-white);
+  border: 5px solid var(--christmas-green);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-md);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+  width: 100%;
+  margin-top: var(--spacing-md);
+}
+
+/* Sidebar derecha */
+.sidebar-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.stats-sidebar {
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: 
+    0 10px 30px rgba(0, 0, 0, 0.2),
+    0 0 20px rgba(11, 102, 35, 0.1);
+  overflow: hidden;
+  border: 4px solid var(--christmas-green);
+}
+
+.stats-header {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-weight: var(--font-weight-bold);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.stats-body {
+  padding: var(--spacing-lg);
+  background: linear-gradient(180deg, #ffffff 0%, #f5fff5 100%);
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--spacing-md) 0;
+  border-bottom: 2px dashed var(--border-color);
+}
+
+.stat-item:last-child {
+  border-bottom: none;
+}
+
+.stat-item-left {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.stat-icon {
+  font-size: 2rem;
+}
+
+.stat-label {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: var(--font-weight-semibold);
+}
+
+.stat-value {
+  font-size: 2rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--christmas-red);
+}
+
+/* Info card navideña */
+.info-card {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--spacing-lg);
+  border: 4px solid var(--christmas-green);
+  box-shadow: 0 0 20px rgba(11, 102, 35, 0.2);
+  position: relative;
+}
+
+.info-card::before {
+  content: '🎅';
+  position: absolute;
+  top: -10px;
+  right: 15px;
+  font-size: 2rem;
+  animation: swing 2s ease-in-out infinite;
+}
+
+.info-card-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--font-weight-bold);
+  color: var(--christmas-green-dark);
+  margin-bottom: var(--spacing-sm);
+  font-size: 1.125rem;
+}
+
+.info-card-text {
+  color: var(--christmas-green-dark);
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Sección QR cuando el juego está creado */
+.qr-section {
+  grid-column: 1 / -1;
+  background: var(--bg-white);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 40px rgba(11, 102, 35, 0.15);
+  overflow: hidden;
+  border: 4px solid var(--christmas-green);
+}
+
+.qr-header {
+  background: linear-gradient(135deg, var(--christmas-green) 0%, var(--christmas-green-dark) 100%);
+  color: var(--text-white);
+  padding: var(--spacing-xl);
+  text-align: center;
+  position: relative;
+}
+
+.qr-header::before {
+  content: '🎄 ⭐ 🎁 ❄️ 🎅 ⭐ 🎄';
+  position: absolute;
+  top: 10px;
+  left: 0;
+  right: 0;
+  font-size: 1.5rem;
+  letter-spacing: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.qr-header h2 {
+  font-family: var(--font-family-christmas);
+  font-size: 3rem;
+  margin-bottom: var(--spacing-sm);
+  margin-top: var(--spacing-lg);
+  color: var(--text-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-weight: var(--font-weight-bold);
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.3);
+}
+
+.qr-body {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-xl);
+  padding: var(--spacing-xl);
+  align-items: center;
+  background: linear-gradient(180deg, #ffffff 0%, #f5fff5 100%);
+}
+
+.qr-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-md);
+}
+
+.qr-code-container {
+  padding: var(--spacing-lg);
+  background: var(--bg-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  border: 4px solid var(--christmas-red);
+}
+
+.qr-code-label {
+  font-weight: var(--font-weight-bold);
+  color: var(--christmas-green);
+  text-align: center;
+}
+
+.qr-right {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.game-code-display {
+  text-align: center;
+  padding: var(--spacing-xl);
+  background: linear-gradient(135deg, #fff5f5 0%, #f5fff5 100%);
+  border-radius: var(--border-radius-lg);
+  border: 4px dashed var(--christmas-red);
+  position: relative;
+}
+
+.game-code-display::before {
+  content: '🎁';
+  position: absolute;
+  top: -18px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  background: white;
+  padding: 0 10px;
+  animation: float 2s ease-in-out infinite;
+}
+
+.game-code-label {
+  font-size: 1.25rem;
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.game-code-value {
+  font-size: 4rem;
+  font-weight: var(--font-weight-extrabold);
+  color: var(--christmas-red);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.5rem;
+  text-shadow: 2px 2px 4px rgba(212, 36, 38, 0.2);
+}
+
+.url-display {
+  padding: var(--spacing-md) var(--spacing-lg);
+  background: linear-gradient(135deg, #f5fff5 0%, #dcfce7 100%);
+  border: 3px solid var(--christmas-green);
+  border-radius: var(--border-radius);
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: var(--christmas-green);
+  text-align: center;
+  word-break: break-all;
+  font-weight: var(--font-weight-semibold);
+}
+
+.instructions {
+  background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+  padding: var(--spacing-lg);
+  border-radius: var(--border-radius);
+  border-left: 5px solid var(--christmas-green);
+}
+
+.instructions h4 {
+  color: var(--christmas-green-dark);
+  margin-bottom: var(--spacing-sm);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.instructions ol {
+  margin: 0;
+  padding-left: var(--spacing-lg);
+  color: var(--christmas-green-dark);
+}
+
+.instructions li {
+  margin-bottom: 0.5rem;
+}
+
+/* Animaciones */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes christmasLights {
+  0%, 100% { filter: brightness(1); }
+  25% { filter: brightness(1.3) hue-rotate(10deg); }
+  50% { filter: brightness(1.5); }
+  75% { filter: brightness(1.3) hue-rotate(-10deg); }
+}
+
+@keyframes swing {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .dashboard-grid { grid-template-columns: 1fr; }
+  .qr-body { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 768px) {
+  .dashboard-header .logo {
+    transform: scale(1.5);
+    margin: 0 20px;
+  }
+  .header-content { flex-direction: column; gap: var(--spacing-sm); text-align: center; }
+  .header-right { width: 100%; justify-content: center; }
+  .dashboard-main { padding: var(--spacing-md); }
+  .welcome-card { padding: var(--spacing-lg); }
+  .welcome-card::before { font-size: 1.25rem; top: 10px; right: 10px; }
+  .welcome-content h2 { font-size: 1.75rem; }
+  .number-display { font-size: 3rem; min-width: 90px; }
+  .number-btn { width: 50px; height: 50px; font-size: 1.5rem; }
+  .game-code-value { font-size: 2.5rem; letter-spacing: 0.25rem; }
+  .qr-header::before { font-size: 1rem; letter-spacing: 0.5rem; }
+}

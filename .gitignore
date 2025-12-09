@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Docker
+docker-compose.yml.local
+.env.local
+
+# Logs
+*.log
+logs/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporales
+tmp/
+temp/
+
+# Build outputs
+dist/
+build/
+
+
+
