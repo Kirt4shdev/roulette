@@ -8,9 +8,9 @@ const __dirname = path.dirname(__filename);
 
 // Premios corporativos navideños
 const prizes = [
-  { name: 'Cesta de Navidad', type: 'cesta', remaining_units: 1, priority: 1 },
-  { name: 'Pack de Vino', type: 'vino', remaining_units: 1, priority: 2 },
-  { name: 'Pack de Cava', type: 'cava', remaining_units: 30, priority: 3 }
+  { name: 'Cesta de Navidad', type: 'cesta', remaining_units: 17, priority: 1 },
+  { name: 'Pack de Vino', type: 'vino', remaining_units: 20, priority: 2 },
+  { name: 'Pack de Cava', type: 'cava', remaining_units: 20, priority: 3 }
 ];
 
 async function seed() {
@@ -61,22 +61,18 @@ async function seed() {
     console.log(`📋 Cargando ${questions.length} preguntas...`);
     
     for (const q of questions) {
-      // Encontrar la respuesta correcta
-      const correctAnswer = q.answers.find(a => a.correct);
-      const answerIndex = q.answers.indexOf(correctAnswer);
-      const correctOption = ['A', 'B', 'C', 'D'][answerIndex];
-      
+      // El nuevo formato ya tiene option_a, option_b, option_c, option_d y correct
       await client.query(
         `INSERT INTO questions 
          (question_text, option_a, option_b, option_c, option_d, correct_option, used_in_game) 
          VALUES ($1, $2, $3, $4, $5, $6, $7)`,
         [
           q.question,
-          q.answers[0].text,
-          q.answers[1].text,
-          q.answers[2].text,
-          q.answers[3].text,
-          correctOption,
+          q.option_a,
+          q.option_b,
+          q.option_c,
+          q.option_d,
+          q.correct,
           false
         ]
       );

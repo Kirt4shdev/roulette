@@ -99,7 +99,10 @@ export const api = {
       }),
 
     getPrizes: () =>
-      adminRequest('/api/admin/prizes')
+      adminRequest('/api/admin/prizes'),
+    
+    getStats: () =>
+      adminRequest('/api/admin/stats')
   },
 
   // Game endpoints (públicos)

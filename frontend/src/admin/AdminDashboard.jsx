@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 import api from '../services/api';
@@ -11,6 +11,24 @@ function AdminDashboard() {
   const [game, setGame] = useState(null);
   const [questionsPerRound, setQuestionsPerRound] = useState(3);
   const [error, setError] = useState('');
+  const [stats, setStats] = useState({ prizes: 0, questions: 0 });
+
+  useEffect(() => {
+    const fetchStats = async () => {
+      try {
+        const response = await api.admin.getStats();
+        if (response.success) {
+          setStats({
+            prizes: response.prizeStats?.total_units || 0,
+            questions: response.questionStats?.total || 0
+          });
+        }
+      } catch (err) {
+        console.error('Error cargando estadísticas:', err);
+      }
+    };
+    fetchStats();
+  }, []);
 
   const handleCreateGame = async () => {
     setLoading(true);
@@ -161,14 +179,14 @@ function AdminDashboard() {
                         <span className="stat-icon">🎁</span>
                         <span className="stat-label">Premios</span>
                       </div>
-                      <span className="stat-value">32</span>
+                      <span className="stat-value">{stats.prizes}</span>
                     </div>
                     <div className="stat-item">
                       <div className="stat-item-left">
                         <span className="stat-icon">❓</span>
                         <span className="stat-label">Preguntas</span>
                       </div>
-                      <span className="stat-value">84</span>
+                      <span className="stat-value">{stats.questions}</span>
                     </div>
                     <div className="stat-item">
                       <div className="stat-item-left">

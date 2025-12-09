@@ -424,5 +424,25 @@ router.get('/prizes', verifyAdminToken, async (req, res) => {
   }
 });
 
+/**
+ * GET /api/admin/stats
+ * Obtener estadísticas generales (preguntas y premios)
+ */
+router.get('/stats', verifyAdminToken, async (req, res) => {
+  try {
+    const prizeStats = await prizeService.getStats();
+    const questionStats = await questionService.getStats();
+    
+    res.json({
+      success: true,
+      prizeStats,
+      questionStats
+    });
+  } catch (error) {
+    console.error('Error obteniendo estadísticas:', error);
+    res.status(500).json({ error: error.message });
+  }
+});
+
 export default router;
 

@@ -1,0 +1,23 @@
+{
+  "name": "quiz-roulette",
+  "version": "1.0.0",
+  "description": "Sistema de Quiz Navideño Interactivo",
+  "scripts": {
+    "update-questions": "node scripts/update-questions.js",
+    "validate-json": "node -e \"JSON.parse(require('fs').readFileSync('questions/test_questions.json'));console.log('✓ JSON válido')\"",
+    "backup-questions": "node -c \"const fs=require('fs');const d=new Date().toISOString().slice(0,10);fs.mkdirSync('questions/backups',{recursive:true});fs.copyFileSync('questions/test_questions.json',`questions/backups/questions-${d}.json`);console.log('✓ Backup creado')\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/quiz-roulette"
+  },
+  "keywords": [
+    "quiz",
+    "game",
+    "christmas",
+    "interactive"
+  ],
+  "author": "Grupo Dilus",
+  "license": "MIT"
+}
+
