@@ -1,0 +1,76 @@
+version: '3.8'
+
+services:
+  # Base de datos PostgreSQL para el Quiz
+  # Usamos puerto 5435 para no conflictir con los postgres existentes (5432, 5434)
+  postgres:
+    image: postgres:15-alpine
+    container_name: quiz_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-quiz_user}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-quiz_secure_password_change_me}
+      POSTGRES_DB: ${POSTGRES_DB:-quiz_db}
+    volumes:
+      - quiz_postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+    networks:
+      - quiz_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-quiz_user}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  # Backend Node.js
+  # Puerto 3003 disponible (3000=hompay, 3001=embalses, 3002=grafana)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: quiz_backend
+    ports:
+      - "3003:3000"
+    environment:
+      PORT: 3000
+      DATABASE_URL: postgresql://${POSTGRES_USER:-quiz_user}:${POSTGRES_PASSWORD:-quiz_secure_password_change_me}@postgres:5432/${POSTGRES_DB:-quiz_db}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:-admin_secret_token_change_in_production}
+      NODE_ENV: production
+      FRONTEND_URL: https://dilus.mchdev.es
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - quiz_network
+    volumes:
+      - ./questions:/app/questions:ro
+    restart: unless-stopped
+    command: sh -c "sleep 5 && npm run migrate && npm run seed && npm start"
+
+  # Frontend React con Nginx interno
+  # Puerto 8081 disponible (8080=hompay)
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        - VITE_API_URL=
+        - VITE_ADMIN_TOKEN=${ADMIN_TOKEN:-admin_secret_token_change_in_production}
+    container_name: quiz_frontend
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+    networks:
+      - quiz_network
+    restart: unless-stopped
+
+volumes:
+  quiz_postgres_data:
+    driver: local
+
+networks:
+  quiz_network:
+    driver: bridge
+

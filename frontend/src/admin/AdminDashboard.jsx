@@ -54,15 +54,18 @@ function AdminDashboard() {
   };
 
   const getJoinUrl = () => {
-    const host = window.location.hostname === 'localhost' 
-      ? '192.168.201.120' 
-      : window.location.hostname;
+    // En producción usar el dominio configurado, en desarrollo usar la IP local o hostname
+    let host = window.location.hostname;
+    if (host === 'localhost') {
+      host = 'dilus.mchdev.es'; // Dominio de producción
+    }
     
     const port = window.location.port && window.location.port !== '80' && window.location.port !== '443'
       ? `:${window.location.port}`
       : '';
     
-    const protocol = window.location.protocol;
+    // Forzar HTTPS en producción
+    const protocol = host.includes('mchdev.es') ? 'https:' : window.location.protocol;
     
     return `${protocol}//${host}${port}/join/${game?.hash}`;
   };

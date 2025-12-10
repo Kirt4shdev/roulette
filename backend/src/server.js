@@ -13,8 +13,25 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 // Middleware
+const allowedOrigins = [
+  'http://localhost',
+  'http://localhost:5173',
+  'http://localhost:80',
+  'https://dilus.mchdev.es',
+  'http://dilus.mchdev.es'
+];
+
 app.use(cors({
-  origin: ['http://localhost', 'http://localhost:5173', 'http://localhost:80', '*'],
+  origin: function(origin, callback) {
+    // Permitir requests sin origin (como apps móviles o curl)
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin) || process.env.NODE_ENV === 'development') {
+      callback(null, true);
+    } else {
+      console.log('🚫 CORS bloqueado para:', origin);
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization']

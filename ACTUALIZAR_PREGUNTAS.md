@@ -1,12 +1,24 @@
-# 📝 Sistema de Actualización de Preguntas
+# 📝 Sistema de Actualización de Preguntas y Premios
 
-Este documento explica cómo actualizar las preguntas del quiz de forma fácil y rápida.
+Este documento explica cómo actualizar las preguntas y premios del quiz de forma fácil y rápida.
 
 ## 🚀 Método Rápido (Recomendado)
 
-### 1. Editar el archivo JSON directamente
+### Actualizar TODO con un solo comando
 
-Las preguntas están en: `questions/test_questions.json`
+Después de editar los archivos JSON, simplemente ejecuta:
+
+```bash
+docker compose up -d --build
+```
+
+✅ **¡Listo!** Las preguntas y premios se actualizan automáticamente.
+
+---
+
+## 📁 Archivos de Configuración
+
+### Preguntas: `questions/test_questions.json`
 
 **Formato de cada pregunta:**
 ```json
@@ -24,15 +36,34 @@ Las preguntas están en: `questions/test_questions.json`
 - `option_a`, `option_b`, `option_c`, `option_d`: Las 4 opciones de respuesta
 - `correct`: La letra de la respuesta correcta (A, B, C o D)
 
-### 2. Actualizar la base de datos
+### Premios: `questions/prizes.json`
 
-Después de editar el JSON, ejecuta:
-
-```bash
-docker-compose exec backend npm run seed
+**Formato de cada premio:**
+```json
+{
+  "name": "Cesta de Navidad",
+  "type": "cesta",
+  "units": 17,
+  "priority": 1
+}
 ```
 
-✅ ¡Listo! Las preguntas están actualizadas.
+- `name`: Nombre del premio que se muestra
+- `type`: Identificador interno del tipo de premio
+- `units`: Cantidad de unidades disponibles
+- `priority`: Prioridad de asignación (1 = más alta)
+
+---
+
+## 🔄 Actualización Manual (Alternativa)
+
+Si solo quieres actualizar sin reconstruir:
+
+```bash
+docker compose restart backend
+```
+
+Esto reinicia el backend y ejecuta el seed con los archivos actuales.
 
 ---
 
@@ -78,11 +109,11 @@ fs.writeFileSync('questions/test_questions.json', JSON.stringify(output, null, 2
 console.log(`✓ Generadas ${output.length} preguntas`);
 ```
 
-### 2. Ejecutar el script
+### 2. Ejecutar el script y actualizar
 
 ```bash
 node update-questions.js
-docker-compose exec backend npm run seed
+docker compose restart backend
 ```
 
 ---
@@ -140,9 +171,8 @@ Simplemente borra el bloque completo de la pregunta del JSON (incluyendo las lla
 
 3. **Reconstruir si es necesario**: Si cambias el formato o hay problemas, reconstruye los contenedores:
    ```bash
-   docker-compose down
-   docker-compose up -d --build
-   docker-compose exec backend npm run seed
+   docker compose down
+   docker compose up -d --build
    ```
 
 4. **Verificar en la aplicación**: Después de actualizar, revisa que las estadísticas en el dashboard muestren el número correcto de preguntas.
@@ -183,11 +213,12 @@ Si obtienes un error de JSON inválido, revisa:
 roulette/
 ├── questions/
 │   ├── test_questions.json          ← Archivo principal de preguntas
+│   ├── prizes.json                  ← Configuración de premios
 │   └── preguntasconcurso.csv        ← CSV original (referencia)
 ├── backend/
 │   └── src/
 │       └── models/
-│           └── seed.js               ← Script que carga las preguntas a la BD
+│           └── seed.js               ← Script que carga preguntas y premios
 └── update-questions.js              ← Script opcional para generar JSON
 ```
 

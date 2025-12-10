@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Cesta de Navidad",
+    "type": "cesta",
+    "units": 17,
+    "priority": 1
+  },
+  {
+    "name": "Pack de Vino",
+    "type": "vino",
+    "units": 20,
+    "priority": 2
+  },
+  {
+    "name": "Pack de Cava",
+    "type": "cava",
+    "units": 20,
+    "priority": 3
+  }
+]
+

@@ -56,7 +56,7 @@
     "correct": "C"
   },
   {
-    "question": "Quien perdio la cesta miserablemente el ano pasado",
+    "question": "Quien perdio la cesta miserablemente el año pasado",
     "option_a": "Miguel Carrasco",
     "option_b": "Michel",
     "option_c": "Alfonso",
@@ -112,7 +112,7 @@
     "correct": "C"
   },
   {
-    "question": "Quien ha entrado y salido de la empresa visto y no visto este ano",
+    "question": "Quien ha entrado y salido de la empresa visto y no visto este año",
     "option_a": "Un tal Carlos",
     "option_b": "Un tal Roberto",
     "option_c": "Un tal Pedro",
@@ -208,7 +208,7 @@
     "correct": "D"
   },
   {
-    "question": "Quien se ha casado este ano",
+    "question": "Quien se ha casado este año",
     "option_a": "Sofia y Raul",
     "option_b": "Eva y Fernando",
     "option_c": "Elena H y Alberto",
@@ -216,7 +216,7 @@
     "correct": "D"
   },
   {
-    "question": "Quien ha tenido una hija llamada Alicia este ano",
+    "question": "Quien ha tenido una hija llamada Alicia este año",
     "option_a": "Alfonso",
     "option_b": "Michel",
     "option_c": "Hector",
@@ -349,14 +349,6 @@
     "option_b": "Marcarse un Mary",
     "option_c": "Marcarse un Alberto",
     "option_d": "Marcarse un Vicente",
-    "correct": "B"
-  },
-  {
-    "question": "Quien oso llamar Chiquitin al jefe",
-    "option_a": "Hector",
-    "option_b": "Alfonso",
-    "option_c": "Miguel Carrasco",
-    "option_d": "Eduardo",
     "correct": "B"
   },
   {
@@ -736,7 +728,7 @@
     "correct": "A"
   },
   {
-    "question": "Que no le puede faltar a Elena H por la manana",
+    "question": "Que no le puede faltar a Elena H por la mañana",
     "option_a": "Zumo de naranja",
     "option_b": "Cafe con leche",
     "option_c": "Manzanilla con Anis",

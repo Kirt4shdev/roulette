@@ -6,12 +6,32 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Premios corporativos navideños
-const prizes = [
-  { name: 'Cesta de Navidad', type: 'cesta', remaining_units: 17, priority: 1 },
-  { name: 'Pack de Vino', type: 'vino', remaining_units: 20, priority: 2 },
-  { name: 'Pack de Cava', type: 'cava', remaining_units: 20, priority: 3 }
-];
+// Función para cargar premios desde JSON
+async function loadPrizes() {
+  let prizesPath = '/app/questions/prizes.json'; // Ruta en Docker
+  
+  try {
+    await fs.access(prizesPath);
+  } catch {
+    // Si no existe, intentar ruta local (desarrollo)
+    prizesPath = path.join(__dirname, '../../../questions/prizes.json');
+  }
+  
+  try {
+    const prizesData = await fs.readFile(prizesPath, 'utf-8');
+    const prizes = JSON.parse(prizesData);
+    console.log(`🎁 Cargados ${prizes.length} premios desde ${prizesPath}`);
+    return prizes;
+  } catch (error) {
+    console.log('⚠️ No se encontró prizes.json, usando premios por defecto');
+    // Premios por defecto si no existe el archivo
+    return [
+      { name: 'Cesta de Navidad', type: 'cesta', units: 17, priority: 1 },
+      { name: 'Pack de Vino', type: 'vino', units: 20, priority: 2 },
+      { name: 'Pack de Cava', type: 'cava', units: 20, priority: 3 }
+    ];
+  }
+}
 
 async function seed() {
   const client = await getClient();
@@ -33,11 +53,12 @@ async function seed() {
     
     console.log('🧹 Datos existentes eliminados');
     
-    // Insertar premios
+    // Cargar e insertar premios desde JSON
+    const prizes = await loadPrizes();
     for (const prize of prizes) {
       await client.query(
         'INSERT INTO prizes (name, type, initial_units, remaining_units, priority) VALUES ($1, $2, $3, $3, $4)',
-        [prize.name, prize.type, prize.remaining_units, prize.priority]
+        [prize.name, prize.type, prize.units, prize.priority]
       );
     }
     console.log(`✅ Insertados ${prizes.length} premios`);
