@@ -6,7 +6,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Instalar todas las dependencias (incluidas dev)
-RUN npm install
+RUN npm install --loglevel verbose
 
 # Copiar el resto de la aplicación
 COPY . .

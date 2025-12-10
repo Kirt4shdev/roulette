@@ -55,7 +55,7 @@ function AdminDashboard() {
 
   const getJoinUrl = () => {
     const host = window.location.hostname === 'localhost' 
-      ? '192.168.100.215' 
+      ? '192.168.201.120' 
       : window.location.hostname;
     
     const port = window.location.port && window.location.port !== '80' && window.location.port !== '443'
